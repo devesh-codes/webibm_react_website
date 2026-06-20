@@ -1,0 +1,58 @@
+initialize git into project
+		git init 
+
+check status
+		git status
+
+add file (stagging)
+
+		git add . 
+		
+note - . is for all 
+	fileName for specific file 
+
+
+
+
+
+------------------------------------------
+show current branch
+
+  		git branch
+
+create branch
+
+		git branch branchName
+
+
+switch branch
+
+		git switch branchName
+
+-------------------------------------------
+
+create and switch branch 
+		
+		git switch -c branchName
+
+-------------------------------------------
+
+check branch 
+
+		git checkout branchName
+
+
+
+-------------------------------------------
+
+merge branch
+	note-: firstly you have switch on the branch before merging
+
+		git merge branchName
+
+-------------------------------------------
+
+
+
+
+
