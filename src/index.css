@@ -1,0 +1,19 @@
+@import "tailwindcss";
+body{
+  font-family: "Outfit";
+}
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: auto !important;
+}
+
+._2qp0Z {
+  right: auto !important;
+  left: 20px !important;
+  bottom: 20px !important;
+}
