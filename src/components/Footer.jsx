@@ -267,9 +267,7 @@ function Footer() {
               </NavLink>
             </li>
 
-            <li>
-              Site Map
-            </li>
+            
 
           </ul>
 

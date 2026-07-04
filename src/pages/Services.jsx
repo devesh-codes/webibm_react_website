@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ServicesHero from "../components/services/ServicesHero";
 import Industries from "../components/home/Industries";
 import Testimonials from "../components/home/Testimonials";
-
+import { Helmet } from "react-helmet-async";
 gsap.registerPlugin(ScrollTrigger);
 
 function Services() {
@@ -109,6 +109,21 @@ function Services() {
   return (
 
     <>
+
+
+     <Helmet>
+            <title>About WebIBM | Web Development & Digital Marketing Company</title>
+    
+            <meta
+              name="description"
+              content="Learn about WebIBM, our mission, our team, and how we help businesses grow through web development, SEO, and digital marketing."
+            />
+    
+            <link
+              rel="canonical"
+              href="https://react.webibm.com/services"
+            />
+          </Helmet>
 
       {/* GOOGLE FONT */}
       <style>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import BlogsHero from "../components/blogs/BlogsHero";
 
 function Blogs() {
@@ -49,49 +50,49 @@ function Blogs() {
           </div>
         ) : (
           <div className="grid md:grid-cols-3 gap-8">
-            {Array.isArray(blogs) &&
-              blogs.map((blog, index) => (
-                <article
-                  key={blog.id || index}
-                  className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
-                >
-                  {/* Blog Image */}
-                  <img
-                    src={
-                      blog.img ||
-                      blog.image ||
-                      "https://via.placeholder.com/500x300"
-                    }
-                    alt={blog.title || "Blog Image"}
-                    loading="lazy"
-                    width="500"
-                    height="300"
-                    className="w-full h-48 object-cover"
-                  />
+            {blogs.map((blog, index) => (
+              <article
+                key={blog.id || index}
+                className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
+              >
+                {/* Blog Image */}
+                <img
+                  src={
+                    blog.img ||
+                    blog.image ||
+                    "https://via.placeholder.com/500x300"
+                  }
+                  alt={blog.title || "Blog Image"}
+                  loading="lazy"
+                  width="500"
+                  height="300"
+                  className="w-full h-48 object-cover"
+                />
 
-                  {/* Blog Content */}
-                  <div className="p-5">
-                    <h2 className="font-semibold text-lg mb-2">
-                      {blog.title || "Untitled Blog"}
-                    </h2>
+                {/* Blog Content */}
+                <div className="p-5">
+                  <h2 className="font-semibold text-lg mb-2">
+                    {blog.title || "Untitled Blog"}
+                  </h2>
 
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                      {blog.desc ||
-                        blog.description ||
-                        "No description available."}
-                    </p>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                    {blog.desc ||
+                      blog.description ||
+                      "No description available."}
+                  </p>
 
-                    <button
-                      aria-label={`Read more about ${
-                        blog.title || "this blog"
-                      }`}
-                      className="text-red-500 text-sm font-medium hover:underline"
-                    >
-                      Read More →
-                    </button>
-                  </div>
-                </article>
-              ))}
+                  <Link
+                    to={`/blogs/${blog.id}`}
+                    aria-label={`Read more about ${
+                      blog.title || "this blog"
+                    }`}
+                    className="inline-block text-red-500 text-sm font-medium hover:underline"
+                  >
+                    Read More →
+                  </Link>
+                </div>
+              </article>
+            ))}
           </div>
         )}
       </section>

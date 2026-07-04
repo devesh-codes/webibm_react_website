@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState  } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
-
+import {NavLink} from "react-router-dom";
 import webdevImg from "../../assets/webd.webp";
 import appdevImg from "../../assets/app.webp";
 import webImg from "../../assets/web-dev.webp";
@@ -14,33 +14,18 @@ gsap.registerPlugin(ScrollTrigger);
 function Services() {
   const sectionRef = useRef(null);
 
-  const services = [
-    {
-      title: "Website Designing",
-      desc: "Modern UI/UX experiences crafted to engage users and strengthen your brand identity.",
-      img: webdevImg,
-    },
-    {
-      title: "Website Development",
-      desc: "Fast, scalable, and responsive websites optimized for performance and growth.",
-      img: webImg,
-    },
-    {
-      title: "App Development",
-      desc: "Powerful mobile and web applications built for seamless user experiences.",
-      img: appdevImg,
-    },
-    {
-      title: "Digital Marketing",
-      desc: "Strategic marketing solutions that increase visibility and drive conversions.",
-      img: digitalImg,
-    },
-    {
-      title: "Graphic Designing",
-      desc: "Creative visuals and branding materials that make your business stand out.",
-      img: graphicImg,
-    },
-  ];
+  const [services, setServices] = useState([]);
+
+ useEffect(() => {
+  fetch("https://inbizmart.in/api/categories")
+    .then((res) => res.json())
+    .then((result) => {
+      if (result.status) {
+        setServices(result.data);
+      }
+    })
+    .catch((err) => console.error(err));
+}, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -177,7 +162,7 @@ function Services() {
         services-grid
         grid
         md:grid-cols-2
-        xl:grid-cols-3
+        xl:grid-cols-4
         gap-8
         relative
         z-10
@@ -196,7 +181,7 @@ function Services() {
               border-white/10
               bg-white/[0.03]
               backdrop-blur-xl
-              p-8
+              p-4
               hover:border-red-500/40
               transition-all
               duration-500
@@ -237,7 +222,7 @@ function Services() {
             ">
 
               <img
-                src={service.img}
+                src={`https://inbizmart.in/api/uploads/category/main/${service.main_image}`}
                 alt={service.title}
                 className="
                   w-16
@@ -260,7 +245,7 @@ function Services() {
               {service.title}
             </h3>
 
-            {/* DESC */}
+            {/* DESC */} 
             <p className="
               text-gray-400
               leading-relaxed
@@ -269,9 +254,9 @@ function Services() {
             ">
               {service.desc}
             </p>
-
+ 
             {/* BUTTON */}
-            <button
+           <NavLink to={`/services/${service.slug}`} > <button
               className="
                 flex
                 items-center
@@ -284,7 +269,7 @@ function Services() {
               "
             >
               Explore Service
-
+ 
               <ArrowUpRight
                 size={20}
                 className="
@@ -293,7 +278,7 @@ function Services() {
                   duration-300
                 "
               />
-            </button>
+            </button></NavLink>
 
             {/* CARD NUMBER */}
             <span className="

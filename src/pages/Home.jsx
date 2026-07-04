@@ -33,9 +33,7 @@ const Testimonials = lazy(() =>
   import("../components/home/Testimonials")
 );
 
-const WhyChooseUs = lazy(() =>
-  import("../components/home/WhyChooseUs")
-);
+
 
 const Industries = lazy(() =>
   import("../components/home/Industries")
@@ -93,12 +91,12 @@ const Home = () => {
 
         <meta
           property="og:url"
-          content="https://webibm.com/"
+          content="https://react.webibm.com/"
         />
 
         <meta
           property="og:image"
-          content="https://webibm.com/preview.jpg"
+          content="https://react.webibm.com/preview.jpg"
         />
 
         {/* Twitter */}
@@ -115,6 +113,11 @@ const Home = () => {
         <meta
           name="twitter:description"
           content="Professional web development company."
+        />
+
+        <link
+    rel="canonical"
+    href="https://react.webibm.com/"
         />
       </Helmet>
 
@@ -137,18 +140,18 @@ const Home = () => {
       <Suspense fallback={<SectionLoader />}>
         <Recognition />
       </Suspense>
-
+{/* 
       <Suspense fallback={<SectionLoader />}>
         <Products />
-      </Suspense>
+      </Suspense> */}
 
       <Suspense fallback={<SectionLoader />}>
         <Testimonials />
       </Suspense>
 
-      <Suspense fallback={<SectionLoader />}>
+      {/* <Suspense fallback={<SectionLoader />}>
         <WhyChooseUs />
-      </Suspense>
+      </Suspense> */}
 
       <Suspense fallback={<SectionLoader />}>
         <Industries />

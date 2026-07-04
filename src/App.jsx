@@ -28,7 +28,7 @@ const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const Faq = lazy(() => import("./pages/Faq"));
 const Google_partner_in_india = lazy(() => import("./pages/google_partner_in_india"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
-
+const BlogDetails = lazy(() => import("./pages/BlogDetails"));
 
 // =========================
 // Lazy Loaded WhatsApp
@@ -79,6 +79,7 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:id" element={<BlogDetails />} />
         <Route path="/payments" element={<Payments />} />
         <Route
           path="/privacy-policy"

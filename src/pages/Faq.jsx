@@ -9,6 +9,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 import { NavLink } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const faqData = [
   {
@@ -90,6 +91,22 @@ const Faq = () => {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
+    <>
+      <Helmet>
+        <title>About WebIBM | Web Development & Digital Marketing Company</title>
+
+        <meta
+          name="description"
+          content="Learn about WebIBM, our mission, our team, and how we help businesses grow through web development, SEO, and digital marketing."
+        />
+
+        <link
+          rel="canonical"
+          href="https://react.webibm.com/faq"
+        />
+      </Helmet>
+
+
     <section className="bg-zinc-50 py-20 px-4 sm:px-6 font-[Outfit]">
       <div className="max-w-6xl mx-auto">
         {/* HEADER */}
@@ -144,6 +161,7 @@ const Faq = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

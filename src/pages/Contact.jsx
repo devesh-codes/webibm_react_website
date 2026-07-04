@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MapPin, Mail, Phone, MessageCircle } from "lucide-react";
 import ContactHero from "../components/contact/ContactHero";
-
+import { Helmet } from "react-helmet-async";
 function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -88,6 +88,20 @@ function Contact() {
 
   return (
     <>
+
+      <Helmet>
+        <title>About WebIBM | Web Development & Digital Marketing Company</title>
+
+        <meta
+          name="description"
+          content="Learn about WebIBM, our mission, our team, and how we help businesses grow through web development, SEO, and digital marketing."
+        />
+
+        <link
+          rel="canonical"
+          href="https://react.webibm.com/contact"
+        />
+      </Helmet>
       <ContactHero />
 
       <section

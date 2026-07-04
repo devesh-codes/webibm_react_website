@@ -1,7 +1,7 @@
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ServicesPageHero from "../components/services/ServicesPageHero";
-import StoryServices from "../components/StoryServices.jsx";
 
 function SubcategoryPage() {
 
@@ -20,19 +20,12 @@ function SubcategoryPage() {
   const API =
     "https://inbizmart.in/api";
 
-  /*
-  |--------------------------------------------------------------------------
-  | FETCH DATA
-  |--------------------------------------------------------------------------
-  */
-
   const fetchData = async () => {
 
     try {
 
-      const response = await fetch(
-        `${API}/categories`
-      );
+      const response =
+        await fetch(`${API}/categories`);
 
       const result =
         await response.json();
@@ -41,9 +34,8 @@ function SubcategoryPage() {
 
         const matchedCategory =
           result.data.find(
-            (item) =>
-              item.slug ===
-              categorySlug
+            item =>
+              item.slug === categorySlug
           );
 
         if (matchedCategory) {
@@ -52,9 +44,8 @@ function SubcategoryPage() {
 
           const matchedSubcategory =
             matchedCategory.subcategories.find(
-              (sub) =>
-                sub.slug ===
-                subcategorySlug
+              sub =>
+                sub.slug === subcategorySlug
             );
 
           setSubcategory(
@@ -74,426 +65,93 @@ function SubcategoryPage() {
     }
   };
 
-  /*
-  |--------------------------------------------------------------------------
-  | USE EFFECT
-  |--------------------------------------------------------------------------
-  */
-
   useEffect(() => {
 
     fetchData();
 
   }, [categorySlug, subcategorySlug]);
 
-  /*
-  |--------------------------------------------------------------------------
-  | LOADING
-  |--------------------------------------------------------------------------
-  */
-
   if (loading) {
 
     return (
-
-      <div
-        className="
-          min-h-screen
-          flex
-          items-center
-          justify-center
-          text-4xl
-          font-bold
-        "
-      >
-
+      <div className="min-h-screen flex items-center justify-center text-3xl font-bold">
         Loading...
-
       </div>
     );
   }
-
-  /*
-  |--------------------------------------------------------------------------
-  | NOT FOUND
-  |--------------------------------------------------------------------------
-  */
 
   if (!subcategory) {
 
     return (
-
-      <div
-        className="
-          min-h-screen
-          flex
-          items-center
-          justify-center
-          text-4xl
-          font-bold
-          text-red-500
-        "
-      >
-
+      <div className="min-h-screen flex items-center justify-center text-3xl font-bold text-red-500">
         Service Not Found
-
       </div>
     );
   }
 
+  const benefits = [
+    "Experienced Professionals",
+    "Scalable Architecture",
+    "Modern Technologies",
+    "Dedicated Support",
+    "High Security",
+    "Fast Delivery",
+  ];
+
+  const process = [
+    "Requirement Analysis",
+    "Planning & Strategy",
+    "Design & Development",
+    "Testing & QA",
+    "Deployment",
+    "Maintenance & Support",
+  ];
+
   return (
-
     <>
-
-      {/* HERO */}
-
       <ServicesPageHero
-        title={category.title}
-        breadcrumb={category.title}
+        title={subcategory.title}
+        breadcrumb={subcategory.title}
       />
 
-      {/* MAIN SECTION */}
+      {/* OVERVIEW */}
 
-      <section
-        className="
-          bg-[#f5f5f5]
-          py-24
-        "
-      >
+      <section className="py-24 bg-white">
 
-        <div
-          className="
-            max-w-7xl
-            mx-auto
-            px-6
-            md:px-10
-          "
-        >
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
 
-          {/* TOP SECTION */}
-
-          <div
-            className="
-              grid
-              grid-cols-1
-              lg:grid-cols-2
-              gap-16
-              items-center
-              mb-24
-            "
-          >
-
-            {/* LEFT CONTENT */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
 
             <div>
 
-              <p
-                className="
-                  uppercase
-                  tracking-[3px]
-                  text-green-500
-                  text-sm
-                  font-bold
-                  mb-4
-                "
-              >
+              <span className="text-green-600 font-semibold uppercase tracking-[3px]">
+                Professional Services
+              </span>
 
-                BUILD BUSINESS WITH
-                CUTTING EDGE TECHNOLOGY
-
-              </p>
-
-              <h1
-                className="
-                  text-4xl
-                  md:text-5xl
-                  font-black
-                  leading-tight
-                  text-[#111]
-                  mb-6
-                "
-              >
-
+              <h1 className="text-4xl md:text-5xl font-black mt-4 mb-6 text-[#111]">
                 {subcategory.title}
-
               </h1>
 
-              <div
-                className="
-                  text-gray-600
-                  leading-8
-                  text-lg
-                  space-y-5
-                "
-              >
+              <p className="text-lg leading-8 text-gray-600 mb-6">
+                {subcategory.short_description}
+              </p>
 
-               
-
-                  {
-                    subcategory.short_description
-                  }
-
-               
-
-                <p>
-
-                  We provide premium
-                  development solutions
-                  using modern
-                  technologies and
-                  scalable architecture
-                  for business growth.
-
-                </p>
-
-              </div>
+             <div
+  className="text-gray-600 leading-8"
+  dangerouslySetInnerHTML={{
+    __html: subcategory.long_description || ""
+  }}
+/>
 
             </div>
-
-            {/* RIGHT IMAGE */}
 
             <div>
 
               <img
                 src={`${API}/uploads/subcategory/main/${subcategory.main_image}`}
                 alt={subcategory.title}
-                className="
-                  w-full
-                  object-cover
-                "
+                className="w-full rounded-2xl shadow-xl"
               />
-
-            </div>
-
-          </div>
-
-          {/* SECOND SECTION */}
-
-          <div
-            className="
-              grid
-              grid-cols-1
-              lg:grid-cols-2
-              gap-16
-              items-center
-            "
-          >
-
-            {/* IMAGE */}
-
-            <div>
-
-              <img
-                src={`${API}/uploads/subcategory/icons/${subcategory.main_image}`}
-                alt={subcategory.title}
-                className="
-                  w-full
-                  object-cover
-                "
-              />
-
-            </div>
-
-            {/* SERVICES */}
-
-            <div>
-
-              <p
-                className="
-                  uppercase
-                  tracking-[3px]
-                  text-green-500
-                  text-sm
-                  font-bold
-                  mb-4
-                "
-              >
-
-                BOOST UP YOUR BUSINESS
-
-              </p>
-
-              <h2
-                className="
-                  text-4xl
-                  md:text-5xl
-                  font-black
-                  text-[#111]
-                  leading-tight
-                  mb-10
-                "
-              >
-
-                Our Major Levels Of 
-                {subcategory.title}
-
-              </h2>
-
-              {/* FEATURES */}
-
-              <div className="space-y-8">
-
-                {/* ITEM */}
-
-                <div
-                  className="
-                    flex
-                    gap-5
-                  "
-                >
-
-                  <div
-                    className="
-                      mt-2
-                      w-4
-                      h-4
-                      rounded-full
-                      bg-yellow-400
-                      flex-shrink-0
-                    "
-                  ></div>
-
-                  <div>
-
-                    <h3
-                      className="
-                        text-xl
-                        font-bold
-                        text-[#111]
-                        mb-2
-                      "
-                    >
-
-                      Confidentiality
-                      Is Our Forte
-
-                    </h3>
-
-                    <p
-                      className="
-                        text-gray-600
-                        leading-7
-                      "
-                    >
-
-                      We ensure complete
-                      security and
-                      confidentiality
-                      for all client
-                      projects and data.
-
-                    </p>
-
-                  </div>
-
-                </div>
-
-                {/* ITEM */}
-
-                <div
-                  className="
-                    flex
-                    gap-5
-                  "
-                >
-
-                  <div
-                    className="
-                      mt-2
-                      w-4
-                      h-4
-                      rounded-full
-                      bg-yellow-400
-                      flex-shrink-0
-                    "
-                  ></div>
-
-                  <div>
-
-                    <h3
-                      className="
-                        text-xl
-                        font-bold
-                        text-[#111]
-                        mb-2
-                      "
-                    >
-
-                      Optimized
-                      Performance
-
-                    </h3>
-
-                    <p
-                      className="
-                        text-gray-600
-                        leading-7
-                      "
-                    >
-
-                      Fast loading,
-                      scalable and
-                      performance-driven
-                      solutions for
-                      modern business.
-
-                    </p>
-
-                  </div>
-
-                </div>
-
-                {/* ITEM */}
-
-                <div
-                  className="
-                    flex
-                    gap-5
-                  "
-                >
-
-                  <div
-                    className="
-                      mt-2
-                      w-4
-                      h-4
-                      rounded-full
-                      bg-yellow-400
-                      flex-shrink-0
-                    "
-                  ></div>
-
-                  <div>
-
-                    <h3
-                      className="
-                        text-xl
-                        font-bold
-                        text-[#111]
-                        mb-2
-                      "
-                    >
-
-                      Custom Architecture
-
-                    </h3>
-
-                    <p
-                      className="
-                        text-gray-600
-                        leading-7
-                      "
-                    >
-
-                        {subcategory.title}
-
-                    </p>
-
-                  </div>
-
-                </div>
-
-              </div>
 
             </div>
 
@@ -503,10 +161,119 @@ function SubcategoryPage() {
 
       </section>
 
-      
+      {/* BENEFITS */}
 
+      <section className="py-24 bg-[#f7f8fa]">
+
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          <div className="text-center mb-16">
+
+            <h2 className="text-4xl font-black text-[#111] mb-4">
+              Key Benefits
+            </h2>
+
+            <p className="text-gray-600">
+              Why businesses choose our services
+            </p>
+
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {benefits.map((item, index) => (
+
+              <div
+                key={index}
+                className="
+                  bg-white
+                  p-8
+                  rounded-2xl
+                  shadow-sm
+                  hover:shadow-lg
+                  transition
+                "
+              >
+
+                <div className="text-green-600 text-3xl font-black mb-4">
+                  0{index + 1}
+                </div>
+
+                <h3 className="text-xl font-bold text-[#111]">
+                  {item}
+                </h3>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* PROCESS */}
+
+      <section className="py-24 bg-white">
+
+        <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+          <div className="text-center mb-16">
+
+            <h2 className="text-4xl font-black text-[#111] mb-4">
+              Our Working Process
+            </h2>
+
+            <p className="text-gray-600">
+              Step-by-step execution strategy
+            </p>
+
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {process.map((step, index) => (
+
+              <div
+                key={index}
+                className="
+                  border
+                  border-gray-200
+                  rounded-2xl
+                  p-8
+                  text-center
+                "
+              >
+
+                <div className="text-5xl font-black text-green-600 mb-4">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+
+                <h3 className="text-xl font-bold text-[#111]">
+                  {step}
+                </h3>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* WHY CHOOSE US */}
+
+     
+
+      {/* CTA */}
+
+            
     </>
   );
 }
 
 export default SubcategoryPage;
+

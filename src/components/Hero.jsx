@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import hero from "../assets/home2.avif";
-
+import { NavLink } from "react-router-dom";
 function Hero() {
   const heroRef = useRef(null);
   const canvasRef = useRef(null);
@@ -25,7 +25,7 @@ function Hero() {
   useEffect(() => {
     const currentWord = words[wordIndex];
 
-    let speed = isDeleting ? 50 : 100;
+    let speed = isDeleting ? 20 : 200;
 
     const timeout = setTimeout(() => {
       if (!isDeleting) {
@@ -219,7 +219,7 @@ function Hero() {
         </p>
 
         {/* Heading */}
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6 min-h-[140px]">
+        <h1 className="text-4xl md:text-6xl font-bold leading-tight  min-h-[80px]">
           {text}
           <span className="animate-pulse text-red-500">
             |
@@ -236,13 +236,13 @@ function Hero() {
 
         {/* Buttons */}
         <div className="flex gap-4 flex-wrap">
-          <button className="border border-red-500 text-red-500 px-6 py-2 rounded-full hover:bg-red-500 hover:text-white transition">
-            Our Work
-          </button>
+         <NavLink to="/about" > <button className="border border-red-500 text-red-500 px-6 py-2 rounded-full hover:bg-red-500 hover:text-white transition">
+            About Us
+          </button></NavLink>
 
-          <button className="bg-red-500 px-6 py-2 rounded-full hover:bg-red-600 transition">
+         <NavLink to="/contact" > <button className="bg-red-500 px-6 py-2 rounded-full hover:bg-red-600 transition">
             Get Started
-          </button>
+          </button></NavLink>
         </div>
       </div>
 

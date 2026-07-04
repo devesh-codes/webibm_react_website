@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import { NavLink } from "react-router-dom";
 import visionImg from "../../assets/vision.webp";
 import growthImg from "../../assets/growth.webp";
 import aboutImg from "../../assets/logo-abt.webp";
@@ -137,13 +137,18 @@ function About() {
             src={aboutImg}
             alt="about"
             className="
-              relative
-              z-10
-              w-full
-              max-w-[450px]
-              mx-auto
-              drop-shadow-2xl
-              rounded-3xl
+                relative
+    z-10
+    w-full
+    max-w-[280px]
+    sm:max-w-[350px]
+    md:max-w-[400px]
+    lg:max-w-[450px]
+    xl:max-w-[500px]
+    mx-auto
+    drop-shadow-2xl
+    rounded-3xl
+    h-auto
             "
           />
         </div>
@@ -203,7 +208,7 @@ function About() {
             mt-10
           ">
 
-            <button className="
+          <NavLink to="/services" >  <button className="
               bg-red-500
               hover:bg-red-600
               text-white
@@ -216,8 +221,8 @@ function About() {
               shadow-lg
             ">
               Explore Services
-            </button>
-
+            </button></NavLink>
+              <NavLink to="/contact" >
             <button className="
               border-2
               border-gray-300
@@ -232,7 +237,7 @@ function About() {
               duration-300
             ">
               Contact Us
-            </button>
+            </button></NavLink>
           </div>
 
         </div>

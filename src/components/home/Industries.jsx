@@ -7,7 +7,7 @@ function Industries() {
         {/* 🔹 LEFT SIDE (VIDEO) */}
         <div className="relative">
           <video
-            src="https://react.webibm.in/Brand-Banner.mp4"   // 👉 put video in public folder
+            src="src/assets/video.mp4"   // 👉 put video in public folder
             autoPlay
             loop
             muted
