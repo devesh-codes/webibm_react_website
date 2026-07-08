@@ -58,10 +58,10 @@ function Blogs() {
                 {/* Blog Image */}
                 <img
                   src={
-                    blog.img ||
-                    blog.image ||
-                    "https://via.placeholder.com/500x300"
-                  }
+  blog.images && blog.images.length > 0
+    ? `https://inbizmart.in/api/uploads/blogs/${blog.images[0]}`
+    : "https://via.placeholder.com/500x300"
+}
                   alt={blog.title || "Blog Image"}
                   loading="lazy"
                   width="500"

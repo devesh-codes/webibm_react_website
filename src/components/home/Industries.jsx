@@ -7,7 +7,7 @@ function Industries() {
         {/* 🔹 LEFT SIDE (VIDEO) */}
         <div className="relative">
           <video
-            src="src/assets/video.mp4"   // 👉 put video in public folder
+            src="src/assets/video.mp4"    
             autoPlay
             loop
             muted

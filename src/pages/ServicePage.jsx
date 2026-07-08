@@ -101,254 +101,214 @@ function ServicePage() {
         breadcrumb={category.title}
       />
 
-      <section className="bg-[#f7f7f7] min-h-screen pt-32 pb-20">
+      <section className="bg-white">
 
-        {/* HERO SECTION */}
+  {/* HERO */}
+
+  <div className="max-w-7xl mx-auto px-6 lg:px-10 py-24">
+
+    <div className="grid lg:grid-cols-2 gap-20 items-center">
+
+      {/* LEFT */}
+
+      <div>
+
+        <span className="inline-block bg-red-100 text-red-500 px-5 py-2 rounded-full text-sm font-semibold uppercase tracking-widest mb-6">
+          Premium Digital Service
+        </span>
+
+        <h1 className="text-5xl lg:text-7xl font-black leading-tight text-gray-900 mb-6">
+          {category.title}
+        </h1>
+
+        <p className="text-xl text-gray-500 leading-9 mb-10">
+          {category.meta_description}
+        </p>
+
+        <NavLink
+          to="/contact-us"
+          className="inline-flex items-center gap-3 bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full transition"
+        >
+          Start Your Project →
+        </NavLink>
+
+      </div>
+
+      {/* IMAGE */}
+
+      <div className="relative">
+
+        <div className="absolute -top-8 -right-8 w-full h-full  rounded-[40px]"></div>
+
+        <img
+          src={`${API}/uploads/category/main/${category.main_image}`}
+          alt={category.title}
+          className="relative rounded-[40px] shadow-2xl object-cover w-full h-[550px]"
+        />
+
+      </div>
+
+    </div>
+
+  </div>
+
+  {/* STATS */}
+
+  <div className="max-w-6xl mx-auto px-6 -mt-6">
+
+    <div className="grid md:grid-cols-4 gap-6">
+
+      {[
+        ["10+", "Years Experience"],
+        ["250+", "Projects"],
+        ["98%", "Client Satisfaction"],
+        ["24/7", "Support"],
+      ].map((item, index) => (
 
         <div
-          className="
-            max-w-7xl
-            mx-auto
-            px-6
-            md:px-10
-            grid
-            grid-cols-1
-            lg:grid-cols-2
-            gap-14
-            items-center
-            mb-28
-          "
+          key={index}
+          className="bg-white rounded-3xl shadow-lg p-8 text-center"
         >
 
-          {/* LEFT CONTENT */}
+          <h2 className="text-4xl font-black text-red-500">
+            {item[0]}
+          </h2>
 
-          <div>
-
-            <p
-              className="
-                text-red-500
-                uppercase
-                tracking-[3px]
-                font-semibold
-                mb-4
-              "
-            >
-              Our Services
-            </p>
-
-            <h1
-              className="
-                text-4xl
-                md:text-6xl
-                font-black
-                leading-tight
-                text-[#111]
-                mb-6
-              "
-            >
-              {category.title}
-            </h1>
-
-            <p
-              className="
-                text-gray-600
-                text-lg
-                leading-8
-                mb-8
-              "
-            >
-              {category.description}
-            </p>
-
-            <NavLink
-              to="/contact"
-              className="
-                inline-flex
-                items-center
-                gap-3
-                bg-red-500
-                text-white
-                px-8
-                py-4
-                rounded-full
-                font-semibold
-                hover:bg-red-600
-                transition
-              "
-            >
-              Get Started
-            </NavLink>
-
-          </div>
-
-          {/* RIGHT IMAGE */}
-
-          <div>
-
-            <img
-              src={`${API}/uploads/category/main/${category.main_image}`}
-              alt={category.title}
-              className="
-                w-full
-                object-cover
-              "
-            />
-
-          </div>
+          <p className="text-gray-500 mt-2">
+            {item[1]}
+          </p>
 
         </div>
 
-        {/* SERVICES SECTION */}
+      ))}
 
-        <div
-          className="
-            max-w-7xl
-            mx-auto
-            px-6
-            md:px-10
-          "
+    </div>
+
+  </div>
+
+  {/* DESCRIPTION */}
+
+  <div className="max-w-5xl mx-auto px-6 py-24">
+
+    <h2 className="text-4xl font-bold mb-12">
+      About This Service
+    </h2>
+
+    <div
+      className="prose prose-lg max-w-none"
+        dangerouslySetInnerHTML={{
+          __html: category.description,
+        }}
+    />
+
+  </div>
+
+  {/* SERVICES */}
+
+  <div className="max-w-7xl mx-auto px-6 pb-24">
+
+    <div className="text-center mb-16">
+
+      <span className="uppercase tracking-[4px] text-red-500 font-semibold">
+        Included Services
+      </span>
+
+      <h2 className="text-5xl font-black mt-4">
+        Everything Included
+      </h2>
+
+    </div>
+
+    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+      {category.subcategories?.map((sub) => (
+
+        <NavLink
+          key={sub.id}
+          to={`/services/${category.slug}/${sub.slug}`}
+          className="group bg-white rounded-[30px] border border-gray-100 hover:border-red-500 shadow-lg hover:shadow-2xl transition duration-500 overflow-hidden"
         >
 
-          <div className="text-center mb-16">
+          <div className="p-8">
 
-            <p
-              className="
-                text-red-500
-                uppercase
-                tracking-[3px]
-                font-semibold
-                mb-4
-              "
-            >
-              What We Offer
+            <div className="w-20 h-20 rounded-3xl bg-red-50 flex items-center justify-center mb-8 group-hover:scale-110 transition">
+
+              <img
+                src={`${API}/uploads/subcategory/icons/${sub.icon_image}`}
+                alt={sub.title}
+                className="w-12 h-12 object-contain"
+              />
+
+            </div>
+
+            <h3 className="text-2xl font-bold mb-5 group-hover:text-red-500 transition">
+
+              {sub.title}
+
+            </h3>
+
+            <p className="text-gray-600 leading-8 line-clamp-4">
+
+              {sub.short_description}
+
             </p>
 
-            <h2
-              className="
-                text-4xl
-                md:text-5xl
-                font-black
-                text-[#111]
-              "
-            >
-              What Services Are Offered?
-            </h2>
+            <div className="mt-8 flex items-center justify-between">
+
+              <span className="font-semibold text-red-500">
+
+                Learn More →
+
+              </span>
+
+              <div className="w-10 h-10 rounded-full bg-red-50 group-hover:bg-red-500 group-hover:text-white flex items-center justify-center transition">
+
+                →
+
+              </div>
+
+            </div>
 
           </div>
 
-          <div
-            className="
-              grid
-              grid-cols-1
-              md:grid-cols-2
-              lg:grid-cols-3
-              gap-8
-            "
-          >
+        </NavLink>
 
-            {category.subcategories &&
-              category.subcategories.map((sub) => (
+      ))}
 
-                <NavLink
-                  key={sub.id}
-                  to={`/services/${category.slug}/${sub.slug}`}
-                  className="
-                    bg-white
-                    rounded-3xl
-                    p-8
-                    shadow-lg
-                    border
-                    border-gray-100
-                    hover:-translate-y-2
-                    hover:shadow-2xl
-                    transition-all
-                    duration-300
-                    group
-                  "
-                >
+    </div>
 
-                  {/* ICON */}
+  </div>
 
-                  <div
-                    className="
-                      w-16
-                      h-16
-                      rounded-2xl
-                      bg-red-100
-                      flex
-                      items-center
-                      justify-center
-                      mb-6
-                      overflow-hidden
-                    "
-                  >
+  {/* CTA */}
 
-                    <img
-                      src={`${API}/uploads/subcategory/icons/${sub.icon_image}`}
-                      alt={sub.title}
-                      className="
-                        w-10
-                        h-10
-                        object-contain
-                      "
-                    />
+  <div className="bg-[#111] py-24">
 
-                  </div>
+    <div className="max-w-5xl mx-auto text-center px-6">
 
-                  {/* TITLE */}
+      <h2 className="text-white text-5xl font-black mb-6">
 
-                  <h3
-                    className="
-                      text-2xl
-                      font-bold
-                      text-[#111]
-                      mb-4
-                      group-hover:text-red-500
-                      transition
-                    "
-                  >
-                    {sub.title}
-                  </h3>
+        Ready to Grow Your Business?
 
-                  {/* DESCRIPTION */}
+      </h2>
 
-                  <p
-                    className="
-                      text-gray-600
-                      leading-7
-                      line-clamp-4
-                    "
-                  >
-                    {sub.short_description}
-                  </p>
+      <p className="text-gray-400 text-lg mb-10">
 
-                  {/* BUTTON */}
+        Let's build a powerful digital presence together.
 
-                  <div className="mt-6">
+      </p>
 
-                    <span
-                      className="
-                        inline-flex
-                        items-center
-                        gap-2
-                        text-red-500
-                        font-semibold
-                      "
-                    >
-                      Read More →
-                    </span>
+      <NavLink
+        to="/contact-us"
+        className="inline-flex bg-red-500 hover:bg-red-600 text-white px-10 py-5 rounded-full font-semibold transition"
+      >
+        Get Free Consultation
+      </NavLink>
 
-                  </div>
+    </div>
 
-                </NavLink>
+  </div>
 
-              ))}
-
-          </div>
-
-        </div>
-
-      </section>
+</section>
     </>
   );
 }

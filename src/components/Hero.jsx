@@ -236,11 +236,11 @@ function Hero() {
 
         {/* Buttons */}
         <div className="flex gap-4 flex-wrap">
-         <NavLink to="/about" > <button className="border border-red-500 text-red-500 px-6 py-2 rounded-full hover:bg-red-500 hover:text-white transition">
+         <NavLink to="/about-us" > <button className="border border-red-500 text-red-500 px-6 py-2 rounded-full hover:bg-red-500 hover:text-white transition">
             About Us
           </button></NavLink>
 
-         <NavLink to="/contact" > <button className="bg-red-500 px-6 py-2 rounded-full hover:bg-red-600 transition">
+         <NavLink to="/contact-us" > <button className="bg-red-500 px-6 py-2 rounded-full hover:bg-red-600 transition">
             Get Started
           </button></NavLink>
         </div>

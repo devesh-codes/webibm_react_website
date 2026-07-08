@@ -90,7 +90,7 @@ function Contact() {
     <>
 
       <Helmet>
-        <title>About WebIBM | Web Development & Digital Marketing Company</title>
+        <title> WebIBM | Web Development & Digital Marketing Company</title>
 
         <meta
           name="description"
@@ -144,7 +144,7 @@ function Contact() {
         {/* HEADING */}
         <div className="text-center mb-20 relative z-10">
           <span className="text-red-500 uppercase tracking-[5px] text-sm font-semibold">
-            Contact Us
+            Best Digital Marketing Company in Delhi
           </span>
 
           <h2 className="text-4xl md:text-6xl font-bold text-white mt-5 leading-tight">

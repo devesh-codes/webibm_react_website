@@ -165,7 +165,7 @@ function About() {
             About Webibm
           </span>
 
-          <h2 className="
+          <h1 className="
             text-4xl
             md:text-5xl
             font-bold
@@ -174,9 +174,9 @@ function About() {
             mt-5
             mb-8
           ">
-            Creative Digital Solutions
-            For Modern Businesses
-          </h2>
+            Best Digital Marketing Company 
+
+          </h1>
 
           <div className="
             space-y-6
@@ -222,7 +222,7 @@ function About() {
             ">
               Explore Services
             </button></NavLink>
-              <NavLink to="/contact" >
+              <NavLink to="/contact-us" >
             <button className="
               border-2
               border-gray-300

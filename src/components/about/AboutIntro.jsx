@@ -44,17 +44,17 @@ function AboutIntro() {
               About WebIBM
             </span>
 
-            <h2 className="
+            <h1 className="
               text-4xl
               md:text-5xl
               font-bold
-              leading-tight
+              leading-tight 
               mt-4
               mb-8
               text-gray-900
             ">
-              Meet The Creative Minds Behind Your Digital Growth
-            </h2>
+              Digital Marketing And Website Designing Company
+            </h1>
 
             <div className="
               text-gray-600

@@ -165,7 +165,7 @@ function Navbar({ logoRef }) {
           </NavLink>
 
           <NavLink
-            to="/about"
+            to="/about-us"
             className={navClass}
           >
             About Us
@@ -316,7 +316,7 @@ function Navbar({ logoRef }) {
           </NavLink> */}
 
           <NavLink
-            to="/contact"
+            to="/contact-us"
             className={navClass}
           >
             Contact Us
