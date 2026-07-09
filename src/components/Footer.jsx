@@ -116,7 +116,7 @@ function Footer() {
 
             <li>
               <NavLink
-                to="/about"
+                to="/about-us"
                 className="hover:text-yellow-400 transition"
               >
                 About Us

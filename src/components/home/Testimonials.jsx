@@ -51,7 +51,7 @@ function Testimonials() {
   }, []);
 
   return (
-    <section className="bg-white py-20 px-6 md:px-20">
+    <section className="bg-white py-20 px-6 md:px-20 ">
       
       {/* 🔹 CLIENTS */}
       <div className="text-center mb-16">
@@ -101,7 +101,7 @@ function Testimonials() {
       </div>
 
       {/* 🔹 TESTIMONIALS */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 hidden sm:block">
         <p className="text-red-500 text-sm mb-2">
           TESTIMONIALS
         </p>
@@ -112,7 +112,7 @@ function Testimonials() {
       </div>
 
       {/* Cards */}
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-3 lg:grid gap-8 hidden sm:block ">
         
         {/* Card */}
         {[

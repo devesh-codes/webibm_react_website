@@ -67,7 +67,7 @@ function Hero() {
     };
 
     // Reduced particles
-    const particleCount = 150;
+    const particleCount = 350;
 
     // Resize canvas
     const resize = () => {

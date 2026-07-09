@@ -433,7 +433,7 @@ function Navbar({ logoRef }) {
           </NavLink>
 
           <NavLink
-            to="/about"
+            to="/about-us"
             onClick={() =>
               setMobileMenu(false)
             }
@@ -519,7 +519,7 @@ function Navbar({ logoRef }) {
 
           </div>
 
-          <NavLink
+          {/* <NavLink
             to="/portfolio"
             onClick={() =>
               setMobileMenu(false)
@@ -527,10 +527,10 @@ function Navbar({ logoRef }) {
             className="hover:text-red-500"
           >
             Portfolio
-          </NavLink>
+          </NavLink> */}
 
           <NavLink
-            to="/contact"
+            to="/contact-us"
             onClick={() =>
               setMobileMenu(false)
             }

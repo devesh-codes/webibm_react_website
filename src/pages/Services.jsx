@@ -136,11 +136,11 @@ function Services() {
 
         {/* SERVICES */}
        {/* SERVICES */}
-<section className="py-24 px-6 md:px-12 lg:px-20 bg-[#0b0a0a]">
+<section className="py-20 px-6 md:px-12 lg:px-20 bg-[#0b0a0a] ">
 
   <div className="max-w-7xl mx-auto">
 
-    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+    <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8  ">
 
       {categories.map((category) => (
 
