@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollTopButton from "./components/ScrollTopButton";
-
+import ServiceResolver from "./pages/ServiceResolver";
 import logo from "./assets/logo.webp";
 
 // =========================
@@ -68,14 +68,21 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about-us" element={<About />} />
         <Route path="/services" element={<Services />} />
-        <Route
+        {/* <Route
           path="/services/:categorySlug"
           element={<ServicePage />}
         />
         <Route
-          path="/services/:categorySlug/:subcategorySlug"
+          path="/services/:subcategorySlug"
           element={<SubcategoryPage />}
-        />
+        /> */}
+
+        
+
+<Route
+  path="/services/:slug"
+  element={<ServiceResolver />}
+/>
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/blogs" element={<Blogs />} />

@@ -282,7 +282,7 @@ function Navbar({ logoRef }) {
 
                             <NavLink
                               key={sub.id}
-                              to={`/services/${category.slug}/${sub.slug}`}
+                              to={`/services/${sub.slug}`}
                               className="
                                 block
                                 text-sm
@@ -494,7 +494,7 @@ function Navbar({ logoRef }) {
 
                           <NavLink
                             key={sub.id}
-                            to={`/services/${category.slug}/${sub.slug}`}
+                            to={`/services/${sub.slug}`}
                             onClick={() =>
                               setMobileMenu(
                                 false

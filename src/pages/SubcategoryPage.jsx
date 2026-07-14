@@ -1,13 +1,15 @@
-
+console.log("SubcategoryPage");
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ServicesPageHero from "../components/services/ServicesPageHero";
 import { NavLink } from "react-router-dom";
 function SubcategoryPage() {
 
-  const { categorySlug, subcategorySlug } =
-    useParams();
+  // const {  subcategorySlug } =
+  //   useParams();
+  const { slug } = useParams();
 
+const subcategorySlug = slug;
   const [subcategory, setSubcategory] =
     useState(null);
 
@@ -21,55 +23,39 @@ function SubcategoryPage() {
     "https://inbizmart.in/api";
 
   const fetchData = async () => {
+  try {
+    const response = await fetch(`${API}/categories`);
+    const result = await response.json();
 
-    try {
+    if (result.status) {
+      let matchedCategory = null;
+      let matchedSubcategory = null;
 
-      const response =
-        await fetch(`${API}/categories`);
+      for (const category of result.data) {
+        const sub = category.subcategories.find(
+          (item) => item.slug === subcategorySlug
+        );
 
-      const result =
-        await response.json();
-
-      if (result.status) {
-
-        const matchedCategory =
-          result.data.find(
-            item =>
-              item.slug === categorySlug
-          );
-
-        if (matchedCategory) {
-
-          setCategory(matchedCategory);
-
-          const matchedSubcategory =
-            matchedCategory.subcategories.find(
-              sub =>
-                sub.slug === subcategorySlug
-            );
-
-          setSubcategory(
-            matchedSubcategory
-          );
+        if (sub) {
+          matchedCategory = category;
+          matchedSubcategory = sub;
+          break;
         }
       }
 
-    } catch (error) {
-
-      console.log(error);
-
-    } finally {
-
-      setLoading(false);
-
+      setCategory(matchedCategory);
+      setSubcategory(matchedSubcategory);
     }
-  };
+  } catch (error) {
+    console.log(error);
+  } finally {
+    setLoading(false);
+  }
+};
 
-  useEffect(() => {
-
-    fetchData();
-
-  }, [categorySlug, subcategorySlug]);
+ useEffect(() => {
+  fetchData();
+}, [subcategorySlug]);
 
   if (loading) {
 

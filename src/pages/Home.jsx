@@ -3,12 +3,16 @@ import React, {
   Suspense,
 } from "react";
 
-import { Helmet } from "react-helmet-async";
 
-// ✅ Keep Hero normal (LCP)
+
+
+import SEO from "../components/SEO/SEO"
+import homeSchema from "../components/SEO/schemas/HomeSchema";
+
+
 import Hero from "../components/Hero";
 
-// ✅ Lazy load below-the-fold sections
+
 const About = lazy(() =>
   import("../components/home/About")
 );
@@ -52,75 +56,21 @@ const Home = () => {
   return (
     <>
       {/* SEO */}
-      <Helmet>
-        <title>
-          WebIBM | Web Development &
-          Digital Marketing Company
-        </title>
 
-        <meta
-          name="description"
-          content="WebIBM provides professional web development, SEO, branding, UI/UX, and digital marketing services for businesses."
-        />
+      {/* comments test */}
+        <SEO
+        title="WebIBM | Web Development & Digital Marketing Company"
+        description="WebIBM provides professional web development..."
+        keywords="web development, seo services..."
+        canonical="https://webibm.com/"
+        image="https://webibm.com/preview.jpg"
+        schema={homeSchema}
+      />
 
-        <meta
-          name="keywords"
-          content="web development, seo services, digital marketing, branding, ui ux design"
-        />
+      
 
-        <meta
-          name="robots"
-          content="index, follow"
-        />
-
-        {/* Open Graph */}
-        <meta
-          property="og:title"
-          content="WebIBM"
-        />
-
-        <meta
-          property="og:description"
-          content="Professional web development and digital marketing company."
-        />
-
-        <meta
-          property="og:type"
-          content="website"
-        />
-
-        <meta
-          property="og:url"
-          content="https://react.webibm.com/"
-        />
-
-        <meta
-          property="og:image"
-          content="https://react.webibm.com/preview.jpg"
-        />
-
-        {/* Twitter */}
-        <meta
-          name="twitter:card"
-          content="summary_large_image"
-        />
-
-        <meta
-          name="twitter:title"
-          content="WebIBM"
-        />
-
-        <meta
-          name="twitter:description"
-          content="Professional web development company."
-        />
-
-        <link
-    rel="canonical"
-    href="https://react.webibm.com/"
-        />
-      </Helmet>
-
+  
+      
       {/* HERO FIRST */}
       <Hero />
 

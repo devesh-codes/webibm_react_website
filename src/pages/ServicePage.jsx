@@ -1,11 +1,12 @@
+console.log("ServicePage");
 import { useEffect, useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import ServicesPageHero from "../components/services/ServicesPageHero";
 
 function ServicePage() {
 
-  const { categorySlug } = useParams();
-
+  const { slug  } = useParams();
+const categorySlug = slug;
   const [category, setCategory] = useState(null);
 
   const [loading, setLoading] = useState(true);
@@ -58,7 +59,6 @@ function ServicePage() {
   }, [categorySlug]);
 
   if (loading) {
-
     return (
       <div
         className="
