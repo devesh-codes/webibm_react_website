@@ -94,8 +94,8 @@ function Products() {
       <div className="flex items-center gap-6">
         
         {/* 🔹 Left Image */}
-        <div className="products-image hidden md:flex w-[500px] h-[300px]  rounded-xl items-center justify-center">
-          <span className="text-gray-500"><img src={servicesImg} alt="" /></span>
+        <div className="products-image hidden md:flex w-[500px] h-[200px]  rounded-xl items-center justify-center">
+          <span className="text-gray-500 animate-[bounce_3s_infinite] "><img src={servicesImg} alt="" /></span>
         </div>
 
         {/* 🔹 Cards */}

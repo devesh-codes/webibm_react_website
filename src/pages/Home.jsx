@@ -1,16 +1,18 @@
 import React, {
   lazy,
   Suspense,
+  useState,
+  useEffect,
 } from "react";
-
 
 
 
 import SEO from "../components/SEO/SEO"
 import homeSchema from "../components/SEO/schemas/HomeSchema";
-
+import PopUpForm from "../components/home/PopUpForm";
 
 import Hero from "../components/Hero";
+
 
 
 const About = lazy(() =>
@@ -36,12 +38,22 @@ const Products = lazy(() =>
 const Testimonials = lazy(() =>
   import("../components/home/Testimonials")
 );
+const WhyChooseUs = lazy(() =>
+  import("../components/home/WhyChooseUs")
+);
 
 
 
 const Industries = lazy(() =>
   import("../components/home/Industries")
 );
+const Blogs = lazy(() =>
+  import("../components/home/Blogs")
+);
+const Faq = lazy(() =>
+  import("../components/home/Faq")
+);
+
 
 // ✅ Small section loader
 function SectionLoader() {
@@ -52,7 +64,20 @@ function SectionLoader() {
   );
 }
 
+
+
+
 const Home = () => {
+
+  const [showPopup, setShowPopup] = useState(false);
+
+useEffect(() => {
+  const timer = setTimeout(() => {
+    setShowPopup(true);
+  }, 1000); // Show after 3 seconds
+
+  return () => clearTimeout(timer);
+}, []);
   return (
     <>
       {/* SEO */}
@@ -90,22 +115,33 @@ const Home = () => {
       <Suspense fallback={<SectionLoader />}>
         <Recognition />
       </Suspense>
-{/* 
+
       <Suspense fallback={<SectionLoader />}>
         <Products />
-      </Suspense> */}
+      </Suspense>
 
       <Suspense fallback={<SectionLoader />}>
         <Testimonials />
       </Suspense>
 
-      {/* <Suspense fallback={<SectionLoader />}>
+      <Suspense fallback={<SectionLoader />}>
         <WhyChooseUs />
-      </Suspense> */}
+      </Suspense>
+
+      <Suspense fallback={<SectionLoader />}>
+        <Faq />
+      </Suspense>
+      <Suspense fallback={<SectionLoader />}>
+        <Blogs />
+      </Suspense>
 
       <Suspense fallback={<SectionLoader />}>
         <Industries />
       </Suspense>
+      <PopUpForm
+       isOpen={showPopup}
+  onClose={() => setShowPopup(false)}
+      />
     </>
   );
 };

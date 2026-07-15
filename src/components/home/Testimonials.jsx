@@ -59,14 +59,14 @@ function Testimonials() {
           A LIST OF
         </p>
 
-        <h2 className="text-3xl md:text-4xl font-bold mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-20">
           Our Trusted Clients
         </h2>
 
         {/* Scrolling Logos */}
         <div
           ref={scrollRef}
-          className="flex overflow-hidden whitespace-nowrap"
+          className="flex overflow-hidden whitespace-nowrap "
         >
           <div className="flex gap-12">
             
@@ -101,8 +101,8 @@ function Testimonials() {
       </div>
 
       {/* 🔹 TESTIMONIALS */}
-      <div className="text-center mb-12 hidden sm:block">
-        <p className="text-red-500 text-sm mb-2">
+      <div className="text-center mb-20 hidden sm:block">
+        <p className="text-red-500 text-xl mb-2 ">
           TESTIMONIALS
         </p>
 

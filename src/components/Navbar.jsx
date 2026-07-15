@@ -308,12 +308,12 @@ function Navbar({ logoRef }) {
 
           </div>
 
-          {/* <NavLink
+          <NavLink
             to="/blogs"
             className={navClass}
           >
             Blogs
-          </NavLink> */}
+          </NavLink>
 
           <NavLink
             to="/contact-us"

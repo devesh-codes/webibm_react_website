@@ -5,10 +5,12 @@ import WhyChooseUs from "../home/WhyChooseUs";
 import visionImg from "../../assets/vision.webp";
 import growthImg from "../../assets/growth.webp";
 import aboutImg from "../../assets/logo-abt.webp";
+import Blogs from "../home/Blogs";
 
 function AboutIntro() {
   return (
     <>
+
       <section className="bg-gray-100 py-20 px-6 md:px-20 relative overflow-hidden">
 
         {/* TOP SECTION */}
@@ -227,6 +229,7 @@ function AboutIntro() {
 
       <WhyChooseUs />
       <Industries />
+      <Blogs/>
     </>
   );
 }

@@ -6,6 +6,7 @@ import ServicesHero from "../components/services/ServicesHero";
 import Industries from "../components/home/Industries";
 import Testimonials from "../components/home/Testimonials";
 import { Helmet } from "react-helmet-async";
+import Blogs from "../components/home/Blogs";
 gsap.registerPlugin(ScrollTrigger);
 
 function Services() {
@@ -253,6 +254,7 @@ function Services() {
       </div>
 
       <Testimonials />
+      <Blogs/>
 
     </>
   );

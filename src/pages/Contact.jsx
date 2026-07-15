@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MapPin, Mail, Phone, MessageCircle } from "lucide-react";
 import ContactHero from "../components/contact/ContactHero";
 import { Helmet } from "react-helmet-async";
+import Blogs from "../components/home/Blogs";
 function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -458,6 +459,7 @@ function Contact() {
           </div>
         </div>
       </section>
+      <Blogs/>
     </>
   );
 }
