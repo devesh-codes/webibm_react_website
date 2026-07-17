@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BlogsHero from "../components/blogs/BlogsHero";
+import Faq from "../components/home/Faq";
 
 function Blogs() {
   const [blogs, setBlogs] = useState([]);
@@ -96,6 +97,8 @@ function Blogs() {
           </div>
         )}
       </section>
+
+      <Faq/>
     </>
   );
 }

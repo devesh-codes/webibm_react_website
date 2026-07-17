@@ -6,6 +6,7 @@ import visionImg from "../../assets/vision.webp";
 import growthImg from "../../assets/growth.webp";
 import aboutImg from "../../assets/logo-abt.webp";
 import Blogs from "../home/Blogs";
+import Faq from "../home/Faq";
 
 function AboutIntro() {
   return (
@@ -230,6 +231,7 @@ function AboutIntro() {
       <WhyChooseUs />
       <Industries />
       <Blogs/>
+      <Faq/>
     </>
   );
 }

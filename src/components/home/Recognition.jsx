@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import motionGraphic  from "../../assets/motion-graphic.mp4"
 
 import htmlImg from "../../assets/html.webp";
 import cssImg from "../../assets/css.webp";
@@ -62,179 +63,7 @@ function Recognition() {
     <section className="bg-[#f8fafc] overflow-hidden">
 
       {/* RECOGNITION */}
-      <div
-        className="
-          py-16
-          sm:py-20
-          lg:py-24
-          px-4
-          sm:px-6
-          lg:px-20
-          relative
-        "
-      >
-
-        {/* BG GLOW */}
-        <div
-          className="
-            absolute
-            top-0
-            left-0
-            w-72
-            h-72
-            sm:w-96
-            sm:h-96
-            bg-red-500/10
-            blur-[120px]
-            rounded-full
-          "
-        ></div>
-
-        {/* HEADING */}
-        <div className="text-center relative z-10">
-
-          <span
-            className="
-              text-red-500
-              uppercase
-              tracking-[4px]
-              text-xs
-              sm:text-sm
-              font-semibold
-            "
-          >
-            Our Global Recognition
-          </span>
-
-          <h2
-            className="
-              text-3xl
-              sm:text-4xl
-              md:text-5xl
-              lg:text-6xl
-              font-bold
-              text-gray-900
-              mt-5
-              leading-tight
-            "
-          >
-            We Are Trailblazers <br />
-            In The IT Industry
-          </h2>
-
-          <p
-            className="
-              text-gray-600
-              text-base
-              sm:text-lg
-              max-w-3xl
-              mx-auto
-              mt-6
-              leading-relaxed
-            "
-          >
-            Delivering innovative digital experiences
-            with world-class technologies and
-            customer-focused solutions.
-          </p>
-        </div>
-
-        {/* RECOGNITION CARDS */}
-        <div
-          className="
-            grid
-            grid-cols-1
-            sm:grid-cols-2
-            lg:grid-cols-4
-            gap-6
-            lg:gap-8
-            mt-14
-            lg:mt-20
-            relative
-            z-10
-          "
-        >
-
-          {[
-            "Clutch",
-            "Trustpilot",
-            "GoodFirms",
-            "Google",
-          ].map((item, i) => (
-
-            <div
-              key={i}
-              className="
-                group
-                relative
-                overflow-hidden
-                rounded-3xl
-                border
-                border-gray-200
-                bg-white/80
-                backdrop-blur-xl
-                p-8
-                sm:p-10
-                text-center
-                hover:-translate-y-2
-                hover:shadow-2xl
-                transition-all
-                duration-500
-              "
-            >
-
-              {/* GLOW */}
-              <div
-                className="
-                  absolute
-                  -top-16
-                  -right-16
-                  w-40
-                  h-40
-                  bg-red-500/10
-                  rounded-full
-                  blur-3xl
-                  opacity-0
-                  group-hover:opacity-100
-                  transition
-                  duration-500
-                "
-              ></div>
-
-              <h3
-                className="
-                  text-2xl
-                  sm:text-3xl
-                  font-bold
-                  text-gray-900
-                  mb-4
-                "
-              >
-                {item}
-              </h3>
-
-              <p
-                className="
-                  text-yellow-500
-                  text-2xl
-                  tracking-wider
-                "
-              >
-                ★★★★★
-              </p>
-
-              <p
-                className="
-                  text-gray-600
-                  mt-4
-                "
-              >
-                Trusted by global businesses.
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+     
 
       {/* CTA SECTION */}
       <div
@@ -370,7 +199,7 @@ function Recognition() {
               "
             ></div>
 
-            <img
+            {/* <img
               src={laptopImg}
               alt="laptop"
               className="
@@ -382,7 +211,26 @@ function Recognition() {
                 drop-shadow-2xl
                 rounded-3xl
               "
-            />
+            /> */}
+
+            <video
+  src={motionGraphic}
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="
+    relative
+    z-10
+    w-full
+    max-w-[600px]
+    mx-auto
+    rounded-3xl
+    drop-shadow-2xl
+  "
+>
+  Your browser does not support the video tag.
+</video>
           </div>
 
         </div>

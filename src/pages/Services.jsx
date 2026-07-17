@@ -7,6 +7,7 @@ import Industries from "../components/home/Industries";
 import Testimonials from "../components/home/Testimonials";
 import { Helmet } from "react-helmet-async";
 import Blogs from "../components/home/Blogs";
+import Faq from "../components/home/Faq";
 gsap.registerPlugin(ScrollTrigger);
 
 function Services() {
@@ -255,6 +256,8 @@ function Services() {
 
       <Testimonials />
       <Blogs/>
+
+      <Faq/>
 
     </>
   );

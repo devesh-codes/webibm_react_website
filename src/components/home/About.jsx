@@ -296,8 +296,9 @@ function About() {
         absolute
         inset-0
         bg-gradient-to-br
-        from-red-600
-        to-red-500
+        from-[#5f160c]
+        to-[#bd1802]
+
       "
     ></div>
 

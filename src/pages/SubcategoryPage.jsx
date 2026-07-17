@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import ServicesPageHero from "../components/services/ServicesPageHero";
 import { NavLink } from "react-router-dom";
 import Blogs from "../components/home/Blogs";
+import Faq from "../components/home/Faq";
 function SubcategoryPage() {
 
   // const {  subcategorySlug } =
@@ -288,6 +289,7 @@ const subcategorySlug = slug;
 
       
             <Blogs/>
+            <Faq/>
             
     </>
   );
