@@ -219,63 +219,56 @@ const categorySlug = slug;
 
     </div>
 
-    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+   <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+  {category.subcategories?.map((sub) => (
+    <NavLink
+      key={sub.id}
+      to={`/services/${category.slug}/${sub.slug}`}
+      className="group overflow-hidden rounded-3xl bg-white border border-gray-200 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
+    >
+      {/* Image */}
+      <div className="relative h-60 overflow-hidden">
+        <img
+          src={`${API}/uploads/subcategory/icons/${sub.icon_image}`}
+          alt={sub.title}
+          className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+        />
 
-      {category.subcategories?.map((sub) => (
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-        <NavLink
-          key={sub.id}
-          to={`/services/${category.slug}/${sub.slug}`}
-          className="group bg-white rounded-[30px] border border-gray-100 hover:border-red-500 shadow-lg hover:shadow-2xl transition duration-500 overflow-hidden"
-        >
+        {/* Floating Arrow */}
+        <div className="absolute top-5 right-5 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-red-500 transition">
+          →
+        </div>
 
-          <div className="p-8">
+        {/* Title */}
+        <div className="absolute bottom-6 left-6 right-6">
+          <h3 className="text-2xl font-bold text-white leading-tight">
+            {sub.title}
+          </h3>
+        </div>
+      </div>
 
-            <div className="w-20 h-20 rounded-3xl bg-red-50 flex items-center justify-center mb-8 group-hover:scale-110 transition">
+      {/* Content */}
+      <div className="p-7">
+        <p className="text-gray-600 leading-7 line-clamp-3">
+          {sub.short_description}
+        </p>
 
-              <img
-                src={`${API}/uploads/subcategory/icons/${sub.icon_image}`}
-                alt={sub.title}
-                className="w-12 h-12 object-contain"
-              />
+        <div className="mt-7 flex items-center justify-between">
+          <span className="text-red-600 font-semibold group-hover:translate-x-1 transition">
+            Learn More
+          </span>
 
-            </div>
-
-            <h3 className="text-2xl font-bold mb-5 group-hover:text-red-500 transition">
-
-              {sub.title}
-
-            </h3>
-
-            <p className="text-gray-600 leading-8 line-clamp-4">
-
-              {sub.short_description}
-
-            </p>
-
-            <div className="mt-8 flex items-center justify-between">
-
-              <span className="font-semibold text-red-500">
-
-                Learn More →
-
-              </span>
-
-              <div className="w-10 h-10 rounded-full bg-red-50 group-hover:bg-red-500 group-hover:text-white flex items-center justify-center transition">
-
-                →
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </NavLink>
-
-      ))}
-
-    </div>
+          <span className="w-10 h-10 rounded-full bg-red-50 flex items-center justify-center text-red-500 group-hover:bg-red-500 group-hover:text-white transition">
+            →
+          </span>
+        </div>
+      </div>
+    </NavLink>
+  ))}
+</div>
 
   </div>
 
