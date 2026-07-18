@@ -2,9 +2,9 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { NavLink } from "react-router-dom";
-import visionImg from "../../assets/vision.webp";
-import growthImg from "../../assets/growth.webp";
-import aboutImg from "../../assets/logo-abt.webp";
+import visionImg from "../../assets/abt-3.webp";
+import growthImg from "../../assets/abt-2.webp";
+import aboutImg from "../../assets/abt-1.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -119,39 +119,41 @@ function About() {
       ">
 
         {/* LEFT IMAGE */}
-        <div className="about-image relative">
+        {/* LEFT IMAGE */}
+<div className="about-image">
 
-          <div className="
-            absolute
-            -top-10
-            -left-10
-            w-40
-            h-40
-            bg-red-100
-            rounded-full
-            blur-3xl
-            opacity-50
-          "></div>
+  <div className="grid grid-cols-2 gap-4 max-w-[520px] mx-auto">
 
-          <img
-            src={aboutImg}
-            alt="about"
-            className="
-                relative
-    z-10
-    w-full
-    max-w-[280px]
-    sm:max-w-[350px]
-    md:max-w-[400px]
-    lg:max-w-[450px]
-    xl:max-w-[500px]
-    mx-auto
-    drop-shadow-2xl
-    rounded-3xl
-    h-auto
-            "
-          />
-        </div>
+    {/* Large Left Image */}
+    <div className="row-span-2">
+      <img
+        src={growthImg}
+        alt="About"
+        className="w-full h-full min-h-[500px] object-cover rounded-3xl"
+      />
+    </div>
+
+    {/* Top Right */}
+    <div>
+      <img
+        src={visionImg}
+        alt="About"
+        className="w-full h-[240px] object-cover rounded-3xl"
+      />
+    </div>
+
+    {/* Bottom Right */}
+    <div>
+      <img
+        src={aboutImg}
+        alt="About"
+        className="w-full h-[240px] object-cover rounded-3xl"
+      />
+    </div>
+
+  </div>
+
+</div>
 
         {/* RIGHT CONTENT */}
         <div className="about-content">

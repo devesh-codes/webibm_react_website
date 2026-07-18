@@ -53,7 +53,9 @@ const [relatedBlogs, setRelatedBlogs] = useState([]);
   }
 };
 
-fetchRelatedBlogs();
+useEffect(() => {
+  fetchRelatedBlogs();
+}, [id]);
 
   if (loading) {
     return (
@@ -70,41 +72,47 @@ fetchRelatedBlogs();
       </div>
     );
   }
+  console.log(blog.description);
 
   return (
     <>
     
     <BlogsHero/>
-   <section className="bg-gray-100 py-16">
+   <section className="bg-white py-16">
   <div className="max-w-7xl mx-auto px-6">
+
+    <h2 className="text-5xl font-bold mb-10">
+      Latest stories
+    </h2>
 
     <div className="grid lg:grid-cols-3 gap-10">
 
-      {/* Left */}
-      <div className="lg:col-span-2 bg-white rounded-xl shadow">
+      {/* LEFT */}
+
+      <div className="lg:col-span-2">
 
         <img
           src={
-            blog.images && blog.images.length > 0
+            blog.images?.length
               ? `https://inbizmart.in/api/uploads/blogs/${blog.images[0]}`
-              : "https://via.placeholder.com/1200x600"
+              : "https://via.placeholder.com/900x600"
           }
           alt={blog.title}
-          className="w-full h-[450px] object-cover rounded-t-xl"
+          className="w-full h-[500px] rounded-3xl object-cover"
         />
 
-        <div className="p-8">
+        <div className="mt-6">
 
-          <h1 className="text-4xl font-bold mb-3">
+          <h1 className="text-3xl font-bold leading-tight">
             {blog.title}
           </h1>
 
-          <div className="text-gray-500 mb-8">
+          <p className="text-gray-500 mt-3 mb-8">
             {new Date(blog.created_at).toLocaleDateString()}
-          </div>
+          </p>
 
           <div
-            className="prose max-w-none"
+            className="prose prose-lg max-w-none"
             dangerouslySetInnerHTML={{
               __html: blog.description,
             }}
@@ -114,51 +122,45 @@ fetchRelatedBlogs();
 
       </div>
 
-      {/* Right Sidebar */}
+      {/* RIGHT */}
 
       <aside>
 
-        <div className="bg-white rounded-xl shadow p-5 sticky top-24">
+        <input
+          type="text"
+          placeholder="What are you looking for?"
+          className="w-full border rounded-full px-5 py-3 mb-8 outline-none"
+        />
 
-          <h3 className="text-2xl font-bold mb-6">
-            Related Blogs
-          </h3>
+        {relatedBlogs.map((item) => (
 
-          {relatedBlogs.map((item) => (
+          <Link
+            key={item.id}
+            to={`/blogs/${item.id}`}
+            className="block mb-8 group"
+          >
 
-            <Link
-              key={item.id}
-              to={`/blogs/${item.id}`}
-              className="flex gap-4 mb-5 group"
-            >
+            <img
+              src={
+                item.images?.length
+                  ? `https://inbizmart.in/api/uploads/blogs/${item.images[0]}`
+                  : "https://via.placeholder.com/300x200"
+              }
+              className="w-full h-40 rounded-2xl object-cover"
+              alt={item.title}
+            />
 
-              <img
-                src={
-                  item.images && item.images.length
-                    ? `https://inbizmart.in/api/uploads/blogs/${item.images[0]}`
-                    : "https://via.placeholder.com/120"
-                }
-                className="w-24 h-20 rounded-lg object-cover"
-                alt={item.title}
-              />
+            <h3 className="mt-4 text-lg font-bold group-hover:text-red-500">
+              {item.title}
+            </h3>
 
-              <div>
+            <p className="text-gray-500 mt-2 text-sm">
+              {new Date(item.created_at).toLocaleDateString()}
+            </p>
 
-                <h4 className="font-semibold group-hover:text-red-500 transition">
-                  {item.title}
-                </h4>
+          </Link>
 
-                <p className="text-sm text-gray-500 mt-1">
-                  {item.short_description}
-                </p>
-
-              </div>
-
-            </Link>
-
-          ))}
-
-        </div>
+        ))}
 
       </aside>
 

@@ -2,236 +2,210 @@ import Industries from "../home/Industries";
 import Services from "../home/Services";
 import WhyChooseUs from "../home/WhyChooseUs";
 
-import visionImg from "../../assets/vision.webp";
+import abtImg1 from "../../assets/abt-5.webp";
+import abtImg2 from "../../assets/abt-6.webp";
 import growthImg from "../../assets/growth.webp";
 import aboutImg from "../../assets/logo-abt.webp";
 import Blogs from "../home/Blogs";
 import Faq from "../home/Faq";
 
+import {
+  Lightbulb,
+  Users,
+  ShieldCheck,
+  TrendingUp
+} from "lucide-react";
+import { NavLink } from "react-router-dom";
+
 function AboutIntro() {
   return (
     <>
 
-      <section className="bg-gray-100 py-20 px-6 md:px-20 relative overflow-hidden">
+     <section className="relative overflow-hidden bg-gradient-to-br from-[#fff8fb] via-white to-[#f4f0ff] py-8 px-6 lg:px-20">
 
-        {/* TOP SECTION */}
-        <div className="grid md:grid-cols-2 gap-14 items-center mb-24">
+  {/* Background Blur */}
+  
+  <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* LEFT IMAGE */}
-          <div className="relative">
-            <img
-              src={aboutImg}
-              alt="about"
-              className="
-                w-full
-                max-w-[500px]
-                mx-auto
-                rounded-3xl
-                shadow-2xl
-                object-cover
-              "
-            />
+    {/* LEFT SIDE */}
+    <div className="relative">
 
-            
-          </div>
+      <img
+        src={abtImg2}
+        alt="About"
+        className="w-full rounded-[35px] shadow-2xl  mb-14 "
+      />
 
-          {/* RIGHT CONTENT */}
-          <div>
+      {/* Floating Image */}
 
-            <span className="
-              text-red-500
-              font-semibold
-              uppercase
-              tracking-widest
-            ">
-              About WebIBM
-            </span>
+      <div className="
+      absolute
+      -bottom-12
+      right-6
+      bg-white
+      p-2
+      rounded-3xl
+      shadow-2xl
+      ">
 
-            <h1 className="
-              text-4xl
-              md:text-5xl
-              font-bold
-              leading-tight 
-              mt-4
-              mb-8
-              text-gray-900
-            ">
-              Digital Marketing And Website Designing Company
-            </h1>
+        <img
+          src={abtImg1}
+          alt=""
+          className="w-[250px] rounded-2xl"
+        />
 
-            <div className="
-              text-gray-600
-              space-y-6
-              text-lg
-              leading-relaxed
-            ">
+      </div>
 
-              <p>
-                <span className="text-red-500 font-semibold">
-                  WebIBM
-                </span>{" "}
-                transforms ideas into powerful digital experiences that help
-                businesses build a strong online presence and achieve sustainable growth.
-              </p>
+    </div>
 
-              <p>
-                We create responsive, high-performance websites and applications
-                designed to improve user engagement, strengthen brand credibility,
-                and deliver seamless experiences across all devices.
-              </p>
+    {/* RIGHT SIDE */}
 
-              <p>
-                From website designing and development to SEO, eCommerce solutions,
-                and digital marketing, our team delivers innovative strategies tailored
-                to modern business needs.
-              </p>
+    <div>
 
-              <p>
-                Our goal is simple — help brands attract more customers, increase
-                visibility, and grow consistently in the digital world.
-              </p>
+      <span className="text-red-700 font-semibold uppercase tracking-[3px]">
+        About WebIBM
+      </span>
 
+      <h2 className="mt-4 text-4xl md:text-5xl font-bold leading-tight text-gray-900">
+
+        We're a team of{" "}
+        <span className="text-red-500">
+          digital craftsmen
+        </span>
+
+      </h2>
+
+      <p className="mt-6 text-lg text-gray-600 leading-8">
+
+        WebIBM is a full-service web design, development, and digital
+        marketing agency helping businesses grow through innovative digital
+        solutions. We combine strategy, creativity, and technology to build
+        websites that deliver measurable results.
+
+      </p>
+
+      {/* CARDS */}
+
+      <div className="grid sm:grid-cols-2 gap-6 mt-10">
+
+        {[
+          {
+            title: "Innovation First",
+            text: "Creative ideas backed by modern technologies.",
+            color: "bg-blue-100",
+            icon: "💡",
+          },
+          {
+            title: "Client-Centric",
+            text: "We work as an extension of your business.",
+            color: "bg-pink-100",
+            icon: "👥",
+          },
+          {
+            title: "Quality Assured",
+            text: "Pixel-perfect websites with clean code.",
+            color: "bg-green-100",
+            icon: "🛡️",
+          },
+          {
+            title: "Results Driven",
+            text: "Focused on traffic, leads and conversions.",
+            color: "bg-yellow-100",
+            icon: "📈",
+          },
+        ].map((item) => (
+
+          <div
+            key={item.title}
+            className="
+            bg-white
+            rounded-3xl
+            p-7
+            shadow-lg
+            hover:-translate-y-2
+            hover:shadow-2xl
+            transition
+            duration-300
+            "
+          >
+
+            <div
+              className={`
+              ${item.color}
+              h-14
+              w-14
+              rounded-2xl
+              flex
+              items-center
+              justify-center
+              text-2xl
+              mb-5
+              `}
+            >
+              {item.icon}
             </div>
+
+            <h3 className="font-bold text-lg text-gray-900">
+              {item.title}
+            </h3>
+
+            <p className="mt-2 text-gray-600 leading-7">
+              {item.text}
+            </p>
+
           </div>
-        </div>
 
-        {/* BACKGROUND */}
-        <div className="
-          absolute
-          inset-0
-          opacity-10
-          bg-[url('./world-map.png')]
-          bg-center
-          bg-no-repeat
-          bg-contain
-          pointer-events-none
-        "></div>
+        ))}
 
-        {/* VISION + MISSION */}
-        {/* VISION + MISSION */}
-<div className="grid md:grid-cols-2 gap-8 mt-20">
-
-  {/* VISION CARD */}
-  <div
-    className="
-      bg-white
-      rounded-3xl
-      p-8
-      shadow-lg
-      border
-      border-gray-100
-      hover:shadow-2xl
-      transition-all
-      duration-300
-    "
-  >
-
-    <div className="flex items-center gap-5 mb-6">
-
-      <div className="
-        bg-red-100
-        p-4
-        rounded-2xl
-      ">
-        <img
-          src={visionImg}
-          alt="vision"
-          className="w-14 h-14 object-contain"
-        />
       </div>
 
-      <div>
-        <h3 className="
-          text-2xl
-          font-bold
-          text-gray-900
+      {/* BUTTONS */}
+
+      <div className="flex flex-wrap gap-5 mt-10">
+        <NavLink to={"/services"} >
+
+        
+        <button className="
+        px-8
+        py-4
+        rounded-full
+        bg-[#cf1616]
+        hover:bg-[#851b1b]
+        text-white
+        font-semibold
+        transition
         ">
-          Our Vision
-        </h3>
-
-        <p className="text-gray-500 text-sm">
-          Future-focused digital innovation
-        </p>
+          Our Services →
+        </button>
+</NavLink>
+        <NavLink to={"/contact-us"} >
+          <button className="
+        px-8
+        py-4
+        rounded-full
+        border-2
+        border-[gray]
+        text-black
+        hover:border-[#C62828]
+        
+        font-semibold
+        transition
+        ">
+          Contact Us
+        </button>
+          </NavLink>
       </div>
+
     </div>
 
-    <ul className="
-      space-y-4
-      text-gray-600
-      leading-relaxed
-    ">
-      <li>✔ Build strong and impactful digital brands.</li>
-      <li>✔ Deliver scalable solutions for business growth.</li>
-      <li>✔ Create meaningful user experiences online.</li>
-      <li>✔ Help brands connect with the right audience.</li>
-      <li>✔ Make digital growth simple and result-driven.</li>
-    </ul>
   </div>
 
-  {/* MISSION CARD */}
-  <div
-    className="
-      bg-white
-      rounded-3xl
-      p-8
-      shadow-lg
-      border
-      border-gray-100
-      hover:shadow-2xl
-      transition-all
-      duration-300
-    "
-  >
-
-    <div className="flex items-center gap-5 mb-6">
-
-      <div className="
-        bg-green-100
-        p-4
-        rounded-2xl
-      ">
-        <img
-          src={growthImg}
-          alt="mission"
-          className="w-14 h-14 object-contain"
-        />
-      </div>
-
-      <div>
-        <h3 className="
-          text-2xl
-          font-bold
-          text-gray-900
-        ">
-          Our Mission
-        </h3>
-
-        <p className="text-gray-500 text-sm">
-          Helping businesses grow digitally
-        </p>
-      </div>
-    </div>
-
-    <ul className="
-      space-y-4
-      text-gray-600
-      leading-relaxed
-    ">
-      <li>✔ Deliver digital solutions with real results.</li>
-      <li>✔ Improve visibility and customer engagement.</li>
-      <li>✔ Build strategies focused on conversions.</li>
-      <li>✔ Maintain long-term business growth support.</li>
-      <li>✔ Provide reliable and innovative digital services.</li>
-    </ul>
-  </div>
-
-</div>
-      </section>
+</section>
 
       <WhyChooseUs />
       <Industries />
-      <Blogs/>
       <Faq/>
+      <Blogs/>
     </>
   );
 }

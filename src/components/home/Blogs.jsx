@@ -6,6 +6,19 @@ function Blogs() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
+
+
+   const stripHtml = (html = "") => {
+  const text = html
+    .replace(/<[^>]*>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return text.length > 150
+    ? text.substring(0, 150) + "..."
+    : text;
+};
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -20,7 +33,7 @@ function Blogs() {
         } else if (Array.isArray(data.blogs)) {
           setBlogs(data.blogs);
         } else if (Array.isArray(data.data)) {
-          setBlogs(data.data);
+          setBlogs(data.data.slice(0, 3));
         } else {
           setBlogs([]);
         }
@@ -109,10 +122,12 @@ function Blogs() {
                   </h2>
 
                   <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                    {blog.desc ||
-                      blog.description ||
-                      "No description available."}
-                  </p>
+  {stripHtml(
+    blog.description ||
+    blog.desc ||
+    "No description available."
+  )}
+</p>
 
                   <Link
                     to={`/blogs/${blog.id}`}

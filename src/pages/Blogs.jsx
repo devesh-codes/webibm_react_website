@@ -7,6 +7,22 @@ function Blogs() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
+
+ 
+
+
+const stripHtml = (html = "") => {
+  const text = html
+    .replace(/<[^>]*>/g, "")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return text.length > 150
+    ? text.substring(0, 150) + "..."
+    : text;
+};
+
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -77,10 +93,8 @@ function Blogs() {
                   </h2>
 
                   <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                    {blog.desc ||
-                      blog.description ||
-                      "No description available."}
-                  </p>
+         {stripHtml(blog.description || blog.desc || "")}
+              </p>
 
                   <Link
                     to={`/blogs/${blog.id}`}

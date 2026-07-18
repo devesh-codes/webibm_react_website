@@ -10,7 +10,7 @@ import React, {
 import SEO from "../components/SEO/SEO"
 import homeSchema from "../components/SEO/schemas/HomeSchema";
 import PopUpForm from "../components/home/PopUpForm";
-
+import MouseCursor from "../components/MouseCursor";
 import Hero from "../components/Hero";
 
 
@@ -93,7 +93,7 @@ useEffect(() => {
       />
 
       
-
+      <MouseCursor/>
   
       
       {/* HERO FIRST */}

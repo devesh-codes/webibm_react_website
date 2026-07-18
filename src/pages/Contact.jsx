@@ -460,8 +460,8 @@ function Contact() {
           </div>
         </div>
       </section>
-      <Blogs/>
       <Faq/>
+      <Blogs/>
     </>
   );
 }

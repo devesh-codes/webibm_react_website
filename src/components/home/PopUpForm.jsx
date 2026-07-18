@@ -7,6 +7,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 
+import testImg from "../../assets/form.jpg"
 export default function PopUpForm({ isOpen, onClose }) {
   const [loading, setLoading] = useState(false);
 
@@ -94,7 +95,7 @@ Customer is interested in discussing digital solutions for their business.`,
         {/* Left Image */}
         <div className="hidden md:block h-full">
           <img
-            src="https://inbizmart.in/api/uploads/subcategory/main/1784026541_ChatGPT%20Image%20Jul%2014,%202026,%2003_17_40%20PM.png"
+            src={testImg}
             alt="Business Consultation"
             className="h-full w-full object-cover"
           />
@@ -108,7 +109,7 @@ Customer is interested in discussing digital solutions for their business.`,
           {/* Heading */}
           <h2 className="mt-5 text-3xl lg:text-4xl font-bold leading-tight text-gray-900">
             Grow Your Business
-            <span className="block text-indigo-600">
+            <span className="block text-red-500">
               with WebIBM
             </span>
           </h2>

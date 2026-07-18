@@ -9,6 +9,7 @@ import ScrollTopButton from "./components/ScrollTopButton";
 import ServiceResolver from "./pages/ServiceResolver";
 import logo from "./assets/logo.webp";
 
+
 // =========================
 // Lazy Loaded Pages
 // =========================
@@ -56,7 +57,8 @@ function App() {
 
   return (
      <>
-    {/* Navbar */}
+    {/* Navbar */}.
+    
     <Navbar logoRef={logoRef} />
 
     <ScrollToTop />
@@ -113,8 +115,8 @@ function App() {
     </Suspense>
 
     {/* Footer */}
+        
     <Footer />
-
     {/* WhatsApp */}
     <Suspense fallback={null}>
       <FloatingWhatsApp
@@ -128,6 +130,9 @@ function App() {
         allowClickAway
       />
     </Suspense>
+
+   
+      {/* <ChatbotWidget/> */}
   </>
   );
 }
