@@ -219,11 +219,11 @@ const categorySlug = slug;
 
     </div>
 
-   <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
   {category.subcategories?.map((sub) => (
     <NavLink
       key={sub.id}
-      to={`/services/${category.slug}/${sub.slug}`}
+      to={`/services/${sub.slug}`}
       className="group overflow-hidden rounded-3xl bg-white border border-gray-200 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
     >
       {/* Image */}

@@ -84,9 +84,10 @@ useEffect(() => {
 
       {/* comments test */}
         <SEO
-        title="WebIBM | Web Development & Digital Marketing Company"
-        description="WebIBM provides professional web development..."
-        keywords="web development, seo services..."
+        title="Best Digital Marketing Agency in Delhi, India | WebIBM"
+        description="WebIBM is a leading digital marketing agency in Delhi offering SEO, PPC, website design, social media marketing, web development, and lead generation services."
+        keywords="Best Digital Marketing Agency in India, Digital Marketing Agency in India, SEO Company in India, Website Design Company in India, Web Development Company in India, PPC Services in India, Social Media Marketing Agency in India, Local SEO Services India, Digital Marketing Services India
+"
         canonical="https://webibm.com/"
         image="https://webibm.com/preview.jpg"
         schema={homeSchema}

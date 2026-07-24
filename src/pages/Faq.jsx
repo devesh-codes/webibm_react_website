@@ -93,7 +93,7 @@ const Faq = () => {
   return (
     <>
       <Helmet>
-        <title>About WebIBM | Web Development & Digital Marketing Company</title>
+        <title>FAQ WebIBM | Web Development & Digital Marketing Company</title>
 
         <meta
           name="description"

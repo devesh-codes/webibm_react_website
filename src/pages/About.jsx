@@ -8,12 +8,17 @@ function About() {
 
 
       <Helmet>
-        <title>About WebIBM | Web Development & Digital Marketing Company</title>
+        <title>About WebIBM | Best Digital Marketing Agency in Delhi India</title>
 
         <meta
           name="description"
-          content="Learn about WebIBM, our mission, our team, and how we help businesses grow through web development, SEO, and digital marketing."
+          content="WebIBM is a leading digital marketing agency in Delhi offering SEO, PPC, website design, social media marketing, web development, and lead generation services."
         />
+
+        <meta
+    name="keywords"
+    content="Best Digital Marketing Agency in India, Digital Marketing Company in India, Web Development Company in India, Website Designing Company in India"
+  />
 
         <link
           rel="canonical"

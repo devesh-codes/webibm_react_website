@@ -92,12 +92,17 @@ function Contact() {
     <>
 
       <Helmet>
-        <title> WebIBM | Web Development & Digital Marketing Company</title>
+        <title>Contact WebIBM | Digital Marketing Company in Delhi</title>
 
         <meta
           name="description"
-          content="Learn about WebIBM, our mission, our team, and how we help businesses grow through web development, SEO, and digital marketing."
+          content="Get in touch with WebIBM for web development, digital marketing, SEO, and mobile app solutions. Contact our experts today for a free business consultation"
         />
+
+        <meta
+    name="keywords"
+    content="Digital Marketing Company in Delhi, Web Development Company in Delhi, Website Development Services Delhi, Mobile App Development Company in delhi"
+  />
 
         <link
           rel="canonical"

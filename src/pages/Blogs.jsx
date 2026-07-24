@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import BlogsHero from "../components/blogs/BlogsHero";
 import Faq from "../components/home/Faq";
-
+import { Helmet } from "react-helmet-async";
 function Blogs() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -54,6 +54,27 @@ const stripHtml = (html = "") => {
 
   return (
     <>
+
+
+     <Helmet>
+            <title>Explore Digital Marketing & SEO Blogs | WebIBM Insights</title>
+    
+            <meta
+              name="description"
+              content="Get in touch with WebIBM for web development, digital marketing, SEO, and mobile app solutions. Contact our experts today for a free business consultation. "
+            />
+    
+            <meta
+        name="keywords"
+        content="Digital Marketing Blogs, Web Development Blogs, Website Development Services Delhi, Mobile App Development Company in delhi
+"
+      />
+    
+            <link
+              rel="canonical"
+              href="https://react.webibm.com/blogs"
+            />
+          </Helmet>
       <BlogsHero />
 
       <section className="bg-gray-100 py-20 px-6 md:px-20">
@@ -69,7 +90,7 @@ const stripHtml = (html = "") => {
           <div className="grid md:grid-cols-3 gap-8">
             {blogs.map((blog, index) => (
               <article
-                key={blog.id || index}
+                key={blog.slug || index}
                 className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
               >
                 {/* Blog Image */}
@@ -97,7 +118,7 @@ const stripHtml = (html = "") => {
               </p>
 
                   <Link
-                    to={`/blogs/${blog.id}`}
+                    to={`/blogs/${blog.slug}`}
                     aria-label={`Read more about ${
                       blog.title || "this blog"
                     }`}

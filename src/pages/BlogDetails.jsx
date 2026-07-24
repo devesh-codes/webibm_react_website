@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import BlogsHero from "../components/blogs/BlogsHero";
 
 function BlogDetails() {
-  const { id } = useParams();
+  const { slug } = useParams();
 
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -12,7 +12,7 @@ const [relatedBlogs, setRelatedBlogs] = useState([]);
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const res = await fetch(`https://inbizmart.in/api/blogs/${id}`);
+        const res = await fetch(`https://inbizmart.in/api/blogs/${slug}`);
         const data = await res.json();
 
         console.log("Blog Detail:", data);
@@ -33,7 +33,7 @@ const [relatedBlogs, setRelatedBlogs] = useState([]);
     };
 
     fetchBlog();
-  }, [id]);
+  }, [slug]);
 
 
 
@@ -46,8 +46,8 @@ const [relatedBlogs, setRelatedBlogs] = useState([]);
     const blogs = data.data || data.blogs || data;
 
     setRelatedBlogs(
-      blogs.filter((b) => String(b.id) !== String(id)).slice(0, 5)
-    );
+  blogs.filter((b) => b.slug !== slug).slice(0, 5)
+);
   } catch (err) {
     console.error(err);
   }
@@ -55,7 +55,7 @@ const [relatedBlogs, setRelatedBlogs] = useState([]);
 
 useEffect(() => {
   fetchRelatedBlogs();
-}, [id]);
+}, [slug]);
 
   if (loading) {
     return (
@@ -72,7 +72,7 @@ useEffect(() => {
       </div>
     );
   }
-  console.log(blog.description);
+  
 
   return (
     <>
@@ -135,8 +135,8 @@ useEffect(() => {
         {relatedBlogs.map((item) => (
 
           <Link
-            key={item.id}
-            to={`/blogs/${item.id}`}
+            key={item.slug}
+            to={`/blogs/${item.slug}`}
             className="block mb-8 group"
           >
 
