@@ -30,6 +30,8 @@ const Faq = lazy(() => import("./pages/Faq"));
 const Google_partner_in_india = lazy(() => import("./pages/google_partner_in_india"));
 const ThankYou = lazy(() => import("./pages/ThankYou"));
 const BlogDetails = lazy(() => import("./pages/BlogDetails"));
+const LocationPage = lazy(() => import("./pages/LocationPage"));
+const SubLocationPage = lazy(() => import("./pages/SubLocationPage"));
 
 // =========================
 // Lazy Loaded WhatsApp
@@ -110,6 +112,16 @@ function App() {
         <Route
           path="/thank-you"
           element={<ThankYou />}
+        />
+
+        <Route
+          path="/locations/:slug"
+          element={<LocationPage />}
+        />
+
+        <Route
+          path="/locations/:slug/:subSlug"
+          element={<SubLocationPage />}
         />
       </Routes>
     </Suspense>

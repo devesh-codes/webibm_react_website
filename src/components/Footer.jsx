@@ -12,6 +12,9 @@ function Footer() {
   const [categories, setCategories] =
     useState([]);
 
+  const [locations, setLocations] =
+    useState([]);
+
   /*
   |--------------------------------------------------------------------------
   | API
@@ -20,6 +23,24 @@ function Footer() {
 
   const API =
     "https://inbizmart.in/api";
+
+  /*
+  |--------------------------------------------------------------------------
+  | SLUGIFY (location has no slug field in API, so generate one from name)
+  |--------------------------------------------------------------------------
+  */
+
+  const slugify = (text) => {
+
+    if (!text) return "";
+
+    return text
+      .toString()
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  };
 
   /*
   |--------------------------------------------------------------------------
@@ -51,6 +72,37 @@ function Footer() {
 
   /*
   |--------------------------------------------------------------------------
+  | FETCH LOCATIONS
+  |--------------------------------------------------------------------------
+  */
+
+  const fetchLocations = async () => {
+
+    try {
+
+      const response = await fetch(
+        `${API}/locations`
+      );
+
+      const result =
+        await response.json();
+
+      console.log("Locations API response:", result);
+
+      if (result.status) {
+
+        // Only keep the first 20 locations
+        setLocations(result.data.slice(0, 20));
+      }
+
+    } catch (error) {
+
+      console.log("Locations fetch error:", error);
+    }
+  };
+
+  /*
+  |--------------------------------------------------------------------------
   | INITIAL LOAD
   |--------------------------------------------------------------------------
   */
@@ -58,6 +110,7 @@ function Footer() {
   useEffect(() => {
 
     fetchCategories();
+    fetchLocations();
 
   }, []);
 
@@ -188,15 +241,12 @@ function Footer() {
 
     <li key={sub.id}>
 
-      <NavLink
-        to={`/services/${sub.categorySlug}/${sub.slug}`}
-        className="
-          hover:text-yellow-400
-          transition
-        "
-      >
-        {sub.title}
-      </NavLink>
+     <NavLink
+  to={`/services/${sub.slug}`}
+  className="hover:text-yellow-400 transition"
+>
+  {sub.title}
+</NavLink>
 
     </li>
   ))
@@ -313,6 +363,48 @@ function Footer() {
 
       </div>
 
+      {/* 🔹 We Serve In These Locations */}
+      {locations.length > 0 && (
+
+        <div className="
+          flex
+          flex-wrap
+          justify-end
+          items-center
+          gap-x-2
+          gap-y-1
+          text-sm
+          text-gray-300
+          mb-4
+        ">
+
+          <span className="font-semibold text-gray-100 mr-1">
+            We serve in these locations:
+          </span>
+
+          {locations.map((location, index) => (
+
+            <span key={location.id} className="flex items-center gap-2">
+
+              <NavLink
+                to={`/locations/${slugify(location.name)}`}
+                className="hover:text-yellow-400 transition"
+              >
+                {location.name}
+              </NavLink>
+
+              {index < locations.length - 1 && (
+                <span className="text-gray-500">•</span>
+              )}
+
+            </span>
+
+          ))}
+
+        </div>
+
+      )}
+
       {/* 🔹 Bottom */}
       <div className="
         text-center
@@ -328,28 +420,7 @@ function Footer() {
 
       </div>
 
-      {/* 🔥 Background Circle Effects */}
-      <div className="
-        absolute
-        bottom-0
-        left-0
-        w-64
-        h-64
-        bg-red-600
-        rounded-full
-        opacity-30
-      "></div>
-
-      <div className="
-        absolute
-        bottom-0
-        right-0
-        w-64
-        h-64
-        bg-red-600
-        rounded-full
-        opacity-30
-      "></div>
+      
 
     </footer>
   );

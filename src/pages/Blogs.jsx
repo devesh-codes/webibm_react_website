@@ -12,11 +12,15 @@ function Blogs() {
 
 
 const stripHtml = (html = "") => {
-  const text = html
-    .replace(/<[^>]*>/g, "")
-    .replace(/&nbsp;/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+  // Remove HTML tags first
+  const withoutTags = html.replace(/<[^>]*>/g, "");
+
+  // Decode HTML entities (&#39;, &amp;, &quot;, &nbsp;, etc.)
+  const textarea = document.createElement("textarea");
+  textarea.innerHTML = withoutTags;
+  const decoded = textarea.value;
+
+  const text = decoded.replace(/\s+/g, " ").trim();
 
   return text.length > 150
     ? text.substring(0, 150) + "..."

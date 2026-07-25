@@ -30,14 +30,14 @@ const Payments = () => {
   });
 
   const bankDetails = {
-    bank: "IndusInd Bank",
-    accountName: "India Business Mart Info Vision Pvt. Ltd.",
-    accountNo: "252240000009",
-    ifsc: "INDB000044",
-    branch: "Janakpuri",
+    bank: "Unity Small Finance Bank",
+    accountName: "Santoshi Piplani",
+    accountNo: "060321250000021",
+    ifsc: "IUNBA0000603 ",
+    branch: "Tilak Nagar",
   };
 
-  const upiId = "q150622230@ybl";
+  const upiId = "santoshlji@unitypay";
 
   const handleCopy = (text, type) => {
 
@@ -161,7 +161,7 @@ const Payments = () => {
   return (
     <>
       {/* MAIN SECTION */}
-      <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 py-6 sm:py-10 px-3 sm:px-4">
+      <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 my-10 py-6 sm:py-10 px-3 sm:px-4">
 
         <div className="max-w-5xl mx-auto bg-white rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 md:p-10">
 
@@ -237,8 +237,8 @@ const Payments = () => {
 
                 <div className="text-center mb-6">
 
-                  <h2 className="text-2xl sm:text-3xl font-bold italic text-red-700">
-                    IndusInd Bank
+                  <h2 className="text-2xl sm:text-3xl font-bold italic text-yellow-500">
+                    Unity Small Finance Bank
                   </h2>
 
                 </div>
@@ -251,7 +251,7 @@ const Payments = () => {
 
                       <tr className="border-b">
 
-                        <td className="font-semibold bg-gray-50 p-4 w-1/3">
+                        <td className="font-semibold bg-gray-50  p-4 w-1/3">
                           Bank Name
                         </td>
 
